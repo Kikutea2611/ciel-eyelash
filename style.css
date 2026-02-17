@@ -660,13 +660,22 @@ a {
         /* End padding */
     }
 
+}
+
+/* Scroll Indicator (Hidden by default on Desktop) */
+.scroll-indicator {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
     /* Scroll Indicator for Nav (Mobile Only) */
     .nav {
         position: relative;
     }
 
-    .nav::after {
-        content: "▶";
+    .scroll-indicator {
+        display: block;
         position: absolute;
         left: 88vw;
         /* Position at right edge of screen initially */
@@ -676,6 +685,15 @@ a {
         font-size: 0.8em;
         color: var(--color-text);
         animation: bounceRight 1.5s infinite;
+        cursor: pointer;
+        /* Make it clickable */
+        transition: opacity 0.3s ease;
+        z-index: 10;
+        /* Ensure it's above other elements if needed */
+    }
+
+    .scroll-indicator.hidden {
+        opacity: 0;
         pointer-events: none;
     }
 

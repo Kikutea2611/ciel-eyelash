@@ -165,4 +165,27 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // --- Scroll Indicator Logic ---
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    const nav = document.querySelector('.nav');
+
+    if (scrollIndicator && nav) {
+        // Click to scroll right
+        scrollIndicator.addEventListener('click', () => {
+            nav.scrollTo({
+                left: nav.scrollWidth,
+                behavior: 'smooth'
+            });
+        });
+
+        // Hide on scroll
+        nav.addEventListener('scroll', () => {
+            if (nav.scrollLeft > 20) {
+                scrollIndicator.classList.add('hidden');
+            } else {
+                scrollIndicator.classList.remove('hidden');
+            }
+        });
+    }
+
 });
