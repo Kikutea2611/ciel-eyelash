@@ -1,0 +1,545 @@
+:root {
+    --color-primary: #D4AF37;
+    /* Champagne Gold */
+    --color-secondary: #F5E6E8;
+    /* Soft Blush */
+    --color-bg: #FAFAFA;
+    /* Off-white */
+    --color-text: #333333;
+    --color-text-light: #666666;
+    --font-serif: 'Playfair Display', serif;
+    --font-jp-serif: 'Zen Old Mincho', serif;
+    --font-sans: 'Lato', sans-serif;
+}
+
+/* ... (omitted shared styles) ... */
+
+/* Concept */
+.concept {
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background decoration for Concept */
+.concept::before {
+    content: 'Ciel';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    font-family: var(--font-serif);
+    font-size: 20rem;
+    color: var(--color-secondary);
+    opacity: 0.2;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.concept-text {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    font-size: 1.15rem;
+    line-height: 2.2;
+    color: var(--color-text);
+    font-family: var(--font-jp-serif);
+    letter-spacing: 0.05em;
+    animation: fadeInUp 1s ease-out;
+}
+
+.concept-text p {
+    margin-bottom: 3rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.8;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    letter-spacing: 0.1em;
+    text-decoration: none;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.nav a {
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.nav a:hover {
+    color: var(--color-primary);
+    opacity: 0.7;
+}
+
+.cta-button {
+    padding: 0.8rem 1.8rem;
+    background-color: var(--color-primary);
+    color: white !important;
+    border-radius: 2px;
+    font-family: var(--font-serif);
+    letter-spacing: 0.1em;
+}
+
+.cta-button:hover {
+    background-color: #bfa141;
+    transform: translateY(-1px);
+    opacity: 0.8;
+}
+
+
+
+
+
+
+.instagram-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    /* Icon white */
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    /* Instagram Gradient */
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    border-radius: 10px;
+    margin: 0 0.5rem;
+    flex-shrink: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    /* Subtle shadow like app icon */
+    border: none;
+    /* Remove border */
+}
+
+.instagram-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    /* Improve hover visibility if needed, or keep same gradient */
+    opacity: 0.9;
+}
+
+
+
+/* Hero */
+/* Hero */
+.hero {
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color-bg);
+    position: relative;
+    /* Important for absolute positioning of pseudo-element */
+    color: white;
+    overflow: hidden;
+    /* Contain the sliding image */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* The sliding background image */
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('images/hero-new.jpg');
+    background-size: 88%;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+    /* Behind text */
+    animation: premiumFadeIn 3s ease-out forwards;
+    transform: scale(1.05);
+    /* Start slightly clearer/larger */
+    opacity: 0;
+}
+
+.hero-content {
+    z-index: 2;
+    /* Ensure text is above background */
+    opacity: 0;
+    /* Start hidden */
+    animation: fadeInUp 1.5s ease-out 1.5s forwards;
+    /* Delay 1.5s to let background establish */
+}
+
+@keyframes premiumFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(1.05);
+        filter: blur(5px) saturate(0.3);
+        /* Subtle blur + reduced saturation */
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0) saturate(0.3);
+    }
+}
+
+.subtitle {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    /* White for better visibility */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.05em;
+}
+
+.hero h1 {
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    color: white;
+    /* Changed back to white as requested */
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    /* Strong shadow for visibility */
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    border: 1px solid white;
+    color: white;
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px);
+}
+
+.hero-btn:hover {
+    background: white;
+    color: var(--color-text);
+    opacity: 0.8;
+}
+
+/* Sections */
+.section {
+    padding: 8rem 2rem;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    color: var(--color-primary);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background-color: var(--color-primary);
+}
+
+/* Concept */
+/* Concept */
+.concept {
+    background: url('images/concept-sky.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.concept-text {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 2.4;
+    color: var(--color-text);
+    font-family: var(--font-jp-serif);
+    animation: fadeInUp 1s ease-out;
+}
+
+.concept-text p {
+    margin-bottom: 3rem;
+}
+
+/* Menu */
+.menu {
+    background-color: #fff;
+}
+
+.menu-category {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.menu-category::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--color-secondary);
+    margin: 0.5rem auto 0;
+}
+
+.menu-list {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px dotted #ddd;
+    padding-bottom: 1rem;
+    transition: opacity 0.3s ease;
+}
+
+.menu-item:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.menu-item .name {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+}
+
+.menu-item .price {
+    font-family: var(--font-serif);
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.menu-item:hover {
+    background-color: rgba(245, 230, 232, 0.3);
+    /* varying secondary color */
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid var(--color-primary);
+}
+
+.menu-category-spacer {
+    margin-top: 3rem;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-secondary);
+    padding: 3rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Menu Layout - Thumbnail List */
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    width: 100%;
+}
+
+.menu-item-image {
+    flex: 0 0 120px;
+    /* Thumbnail width */
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+}
+
+.menu-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.menu-item-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* Stack details vertically */
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.menu-item .name {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    white-space: normal;
+    /* Allow text wrap */
+}
+
+/* Adjustments for existing styles */
+.menu-item:hover {
+    padding-left: 0;
+    padding-right: 0;
+    background-color: transparent;
+    /* Remove row background on hover if desired, or adjust */
+}
+
+
+
+/* Access Section */
+.access-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.access-image {
+    flex: 0 0 45%;
+}
+
+.access-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.access-info {
+    flex: 1;
+    text-align: left;
+}
+
+.access-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-serif);
+    color: var(--color-text);
+}
+
+.access-info .address {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.access-info .access-desc {
+    line-height: 1.8;
+}
+
+/* Responsive Access */
+@media (max-width: 768px) {
+    .access-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .access-image {
+        flex: none;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .access-info {
+        width: 100%;
+        text-align: center;
+        /* Center align text on mobile for better balance */
+    }
+}
+
+/* Map Link Style */
+.map-link {
+    color: #0056b3;
+    /* Standard link blue for visibility */
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.map-link:hover {
+    color: #003d82;
+    text-decoration: none;
+    opacity: 0.7;
+}
