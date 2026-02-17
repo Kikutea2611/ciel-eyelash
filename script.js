@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
         scrollTrigger: {
             trigger: ".hero",
             start: "top top", // Start when hero top is at viewport top
-            end: "50% top",   // End slower (takes more scroll distance)
-            scrub: 1,         // Smooth scrubbing
+            end: "25% top",   // End faster (shorter scroll distance)
+            scrub: 0.5,       // Less lag for snappier feel
         },
         clipPath: "inset(0 0% 0 0)",
         opacity: 1,
