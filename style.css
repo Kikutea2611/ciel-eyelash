@@ -741,9 +741,12 @@ a {
 
     /* Mobile Hero Background Override */
     .hero::before {
-        background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('images/concept-sky.jpg');
-        background-size: cover;
+        background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('images/hero-new.jpg');
+        background-size: 88%;
+        background-repeat: no-repeat;
+        /* Ensure it doesn't repeat */
         background-position: center;
+        /* Center the woman image */
     }
 }
 
