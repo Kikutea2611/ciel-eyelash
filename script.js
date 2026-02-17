@@ -9,19 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- Hero Animation ---
     const tlHero = gsap.timeline();
 
-    // Signature Scroll Animation (Mobile Handwriting Effect)
-    gsap.to(".hero-signature", {
-        scrollTrigger: {
-            trigger: ".hero",
-            start: "top top", // Start when hero top is at viewport top
-            end: "25% top",   // End faster (shorter scroll distance)
-            scrub: 0.5,       // Less lag for snappier feel
-        },
-        clipPath: "inset(0 0% 0 0)",
-        opacity: 1,
-        ease: "none"
-    });
-
     tlHero.from(".hero-content", {
         duration: 1.5,
         opacity: 0,
