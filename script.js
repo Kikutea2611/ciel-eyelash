@@ -45,7 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 toggleActions: "play none none reverse"
             },
             opacity: 0,
-            y: 30,
+            y: 50, // Increased movement
+            scale: 0.9, // Added scale for more emphasis
             duration: 1,
             ease: "power3.out"
         });
@@ -57,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
             trigger: ".concept-text",
             start: "top 80%",
         },
-        y: 30,
+        y: 50, // Increased movement
         opacity: 0,
         duration: 1.2,
         stagger: 0.3,
@@ -75,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 toggleActions: "play none none reverse"
             },
             opacity: 0,
-            x: -20,
+            y: 30, // Horizontal slide for category
             duration: 0.8,
             ease: "power2.out"
         });
@@ -86,14 +87,14 @@ document.addEventListener("DOMContentLoaded", () => {
         interval: 0.1, // time window (in seconds) for batching to occur. 
         batchMax: 3,   // maximum batch size (targets)
         onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
-        onLeave: batch => gsap.set(batch, { opacity: 0, y: 30, overwrite: true }),
+        onLeave: batch => gsap.set(batch, { opacity: 0, y: 50, overwrite: true }), // Increased reset distance
         onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
-        onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 30, overwrite: true }),
+        onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 50, overwrite: true }), // Increased reset distance
         start: "top 90%",
     });
 
     // Set initial state for batch items manually to avoid FOUC or permanent invisibility
-    gsap.set(".menu-item", { y: 30, opacity: 0 });
+    gsap.set(".menu-item", { y: 50, opacity: 0 });
 
 
     // --- Gallery Section ---
@@ -103,7 +104,8 @@ document.addEventListener("DOMContentLoaded", () => {
             start: "top 80%",
         },
         opacity: 0,
-        scale: 0.95,
+        scale: 0.9, // More dramatic scale
+        y: 30,
         duration: 1,
         ease: "power3.out"
     });
@@ -115,6 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
             start: "top 75%",
         },
         x: -50,
+        y: 30, // Added vertical movement
         opacity: 0,
         duration: 1,
         ease: "power3.out"
@@ -126,18 +129,10 @@ document.addEventListener("DOMContentLoaded", () => {
             start: "top 75%",
         },
         x: 50,
+        y: 30, // Added vertical movement
         opacity: 0,
         duration: 1,
         ease: "power3.out",
         delay: 0.2 // Slight delay after image
     });
-
-    // --- Header Scroll Effect (Optional but nice) ---
-    /*
-    ScrollTrigger.create({
-        start: 'top -80',
-        end: 99999,
-        toggleClass: {className: 'scrolled', targets: '.header'}
-    });
-    */
 });
