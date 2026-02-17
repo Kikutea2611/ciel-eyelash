@@ -176,8 +176,10 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+    justify-content: center;
     text-align: center;
-    background-color: var(--color-bg);
+    /* background-color: var(--color-bg); REMOVED */
+    background: url('images/concept-sky.jpg') center/cover no-repeat;
     position: relative;
     /* Important for absolute positioning of pseudo-element */
     color: white;
