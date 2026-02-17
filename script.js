@@ -9,6 +9,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- Hero Animation ---
     const tlHero = gsap.timeline();
 
+    // Signature Scroll Animation (Mobile Handwriting Effect)
+    gsap.to(".hero-signature", {
+        scrollTrigger: {
+            trigger: ".hero",
+            start: "top top", // Start when hero top is at viewport top
+            end: "40% top",   // End when hero is 40% scrolled up
+            scrub: 1.5,       // Smooth scrubbing linked to scroll
+        },
+        clipPath: "inset(0 0% 0 0)",
+        opacity: 1,
+        ease: "none"
+    });
+
     tlHero.from(".hero-content", {
         duration: 1.5,
         opacity: 0,
@@ -34,19 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
             y: 10,
             ease: "back.out(1.7)"
         }, "-=0.6");
-
-    // --- Handwritten Signature Animation (Mobile) ---
-    // Make sure it runs after hero animation or in parallel
-    gsap.to(".hero-signature", {
-        scrollTrigger: {
-            trigger: ".hero",
-            start: "top top", // Start when hero is at top
-            end: "bottom center", // End when hero bottom reaches center? adjust as needed
-            scrub: 1, // Smoothly link to scroll
-        },
-        clipPath: "inset(0 0% 0 0)", // Reveal text left to right
-        ease: "none"
-    });
 
 
     // --- Common Section Title Animation ---
