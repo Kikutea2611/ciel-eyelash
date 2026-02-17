@@ -753,21 +753,25 @@ a {
     .hero-signature {
         display: block;
         position: absolute;
-        bottom: 5%;
-        /* Adjust vertically to sit in the sky margin */
+        bottom: 2%;
+        /* Lower position */
         left: 50%;
         transform: translateX(-50%);
         font-family: 'Great Vibes', cursive;
-        font-size: 3rem;
-        /* Large enough to be elegant */
-        color: white;
-        /* White text to contrast with sky */
-        text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        font-size: 15vw;
+        /* Much larger, responsive size */
+        color: #000;
+        /* Deep black as requested */
+        text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.4);
+        /* Subtle gold shadow for "gorgeous" feel */
         opacity: 0;
         /* Hidden initially for animation */
         /* Clip path for wipe animation */
         clip-path: inset(0 100% 0 0);
         z-index: 2;
+        width: 100%;
+        text-align: center;
+        pointer-events: none;
     }
 }
 
