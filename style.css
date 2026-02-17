@@ -459,12 +459,58 @@ a {
     /* Allow text wrap */
 }
 
-/* Adjustments for existing styles */
-.menu-item:hover {
-    padding-left: 0;
-    padding-right: 0;
-    background-color: transparent;
-    /* Remove row background on hover if desired, or adjust */
+/* Menu Layout - Thumbnail List */
+/* ... (omitted previous menu styles) ... */
+
+/* News Slider */
+.news-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding: 1rem 0 2rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+}
+
+.news-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.news-item {
+    flex: 0 0 300px;
+    /* Fixed width for consistency */
+    height: 400px;
+    /* Adjusted height for vertical images */
+    scroll-snap-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.news-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Contain to show full document */
+    background-color: #fff;
+    display: block;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+    .news-item {
+        flex: 0 0 280px;
+        /* Adapted for mobile */
+        height: 380px;
+    }
 }
 
 
@@ -501,9 +547,78 @@ a {
     color: var(--color-text);
 }
 
+/* Utility for mobile line break */
+.sp-br {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .sp-br {
+        display: block;
+    }
+}
+
 .access-info .address {
     margin-bottom: 1.5rem;
     line-height: 1.8;
+}
+
+/* Lightbox Styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.lightbox.active .lightbox-content {
+    transform: scale(1);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 1001;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.news-item {
+    cursor: pointer;
+    /* Indicate clickable */
 }
 
 .access-info .access-desc {

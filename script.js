@@ -97,10 +97,10 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.set(".menu-item", { y: 50, opacity: 0 });
 
 
-    // --- Gallery Section ---
-    gsap.from(".gallery-grid", {
+    // --- News Section ---
+    gsap.from(".news-slider", {
         scrollTrigger: {
-            trigger: ".gallery",
+            trigger: ".news",
             start: "top 80%",
         },
         opacity: 0,
@@ -135,4 +135,34 @@ document.addEventListener("DOMContentLoaded", () => {
         ease: "power3.out",
         delay: 0.2 // Slight delay after image
     });
+
+    // --- Lightbox Functionality ---
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const newsImages = document.querySelectorAll('.news-item img');
+
+    newsImages.forEach(img => {
+        img.addEventListener('click', function () {
+            lightbox.classList.add('active');
+            lightboxImg.src = this.src;
+            // Prevent body scroll when lightbox is open
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // Close on button click
+    closeBtn.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+
+    // Close on outside click
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
 });
