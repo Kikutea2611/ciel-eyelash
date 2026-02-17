@@ -738,6 +738,13 @@ a {
         padding: 0.8rem 2rem;
         font-size: 1rem;
     }
+
+    /* Mobile Hero Background Override */
+    .hero::before {
+        background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('images/concept-sky.jpg');
+        background-size: cover;
+        background-position: center;
+    }
 }
 
 /* Map Link Style */
