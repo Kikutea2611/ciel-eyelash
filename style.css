@@ -660,12 +660,19 @@ a {
         /* End padding */
     }
 
-    /* Scroll Indicator for Header (Mobile Only) */
-    .header::after {
+    /* Scroll Indicator for Nav (Mobile Only) */
+    .nav {
+        position: relative;
+    }
+
+    .nav::after {
         content: "▶";
         position: absolute;
-        right: 0.5rem;
-        bottom: 1.2rem;
+        left: 88vw;
+        /* Position at right edge of screen initially */
+        top: 45%;
+        /* Align with text (adjust for padding) */
+        transform: translateY(-50%);
         font-size: 0.8em;
         color: var(--color-text);
         animation: bounceRight 1.5s infinite;
