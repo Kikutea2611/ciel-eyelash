@@ -746,20 +746,20 @@ a {
         background-size: 88%;
         background-repeat: no-repeat;
         /* Ensure it doesn't repeat */
-        background-position: center;
-        /* Center the woman image */
+        background-position: center 30%;
+        /* Shift image up to create space at bottom */
     }
 
     .hero-signature {
         display: block;
         position: absolute;
-        bottom: 2%;
-        /* Lower position */
+        bottom: 0%;
+        /* Move to very bottom */
         left: 50%;
         transform: translateX(-50%);
         font-family: 'Great Vibes', cursive;
-        font-size: 15vw;
-        /* Much larger, responsive size */
+        font-size: 22vw;
+        /* Much larger */
         color: #000;
         /* Deep black as requested */
         text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.4);
