@@ -665,7 +665,8 @@ a {
 }
 
 /* Scroll Indicator (Hidden by default on Desktop) */
-.scroll-indicator {
+.scroll-indicator,
+.hero-signature {
     display: none;
 }
 
@@ -747,6 +748,28 @@ a {
         /* Ensure it doesn't repeat */
         background-position: center;
         /* Center the woman image */
+    }
+
+    /* Handwritten Signature (Mobile Only) */
+    .hero-signature {
+        position: absolute;
+        bottom: 5%;
+        /* Position in the bottom margin */
+        right: 15%;
+        /* Adjusted right position */
+        font-family: 'Great Vibes', cursive;
+        font-size: 6rem;
+        /* Larger for dramatic effect */
+        color: rgba(255, 255, 255, 0.9);
+        z-index: 2;
+        pointer-events: none;
+        clip-path: inset(0 100% 0 0);
+        /* Hidden (wiped left) */
+        transform: rotate(-10deg);
+        /* Slight tilt for natural writing look */
+        line-height: 1;
+        text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        /* Subtle shadow for depth on sky */
     }
 }
 

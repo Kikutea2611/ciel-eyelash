@@ -35,6 +35,19 @@ document.addEventListener("DOMContentLoaded", () => {
             ease: "back.out(1.7)"
         }, "-=0.6");
 
+    // --- Handwritten Signature Animation (Mobile) ---
+    // Make sure it runs after hero animation or in parallel
+    gsap.to(".hero-signature", {
+        scrollTrigger: {
+            trigger: ".hero",
+            start: "top top", // Start when hero is at top
+            end: "bottom center", // End when hero bottom reaches center? adjust as needed
+            scrub: 1, // Smoothly link to scroll
+        },
+        clipPath: "inset(0 0% 0 0)", // Reveal text left to right
+        ease: "none"
+    });
+
 
     // --- Common Section Title Animation ---
     gsap.utils.toArray(".section-title").forEach(title => {
